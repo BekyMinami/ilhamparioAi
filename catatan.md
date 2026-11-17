@@ -1,0 +1,3 @@
+Important design caveat (step 9): pure RAG is bad at counting questions like “Which region has the most disruptions this month?” because it only sees the top-k chunks, not the whole table. Fix it by computing the stats with pandas (groupby), then passing the summary to the LLM as extra context. Prompt: “In rag.py, add a function that detects ranking/count questions and computes the answer with pandas, then include the result in the prompt context.” This will also give you a good discussion point for your report.
+
+rag.py problem
